@@ -184,28 +184,29 @@ def main():
             National_25th=data.quantile(q=0.25,axis = 0)
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
-            with cols[0]:
-                st.image(icons[i])
+            with st.container():
+                with cols[0]:
+                    st.image(icons[i])
 
-            with cols[1]:            
-                #diff=dataset.diff(periods=1 )
-                diff=dataset.pct_change(periods=1 ).sum()
-                if(diff>0.02):
-                    st.image(arrow[2])
-                else:
-                    if(diff<-0.02):
-                        st.image(arrow[0])
+                with cols[1]:            
+                    #diff=dataset.diff(periods=1 )
+                    diff=dataset.pct_change(periods=1 ).sum()
+                    if(diff>0.02):
+                        st.image(arrow[2])
                     else:
-                        st.image(arrow[1])
+                        if(diff<-0.02):
+                            st.image(arrow[0])
+                        else:
+                            st.image(arrow[1])
 
-            with cols[2]:            
-                if(dataset[-1]>National_25th[-1]):
-                    if(dataset[-1]>National_75th[-1]):
-                        st.image(up_or_down[2])
+                with cols[2]:            
+                    if(dataset[-1]>National_25th[-1]):
+                        if(dataset[-1]>National_75th[-1]):
+                            st.image(up_or_down[2])
+                        else:
+                            st.image(up_or_down[1])
                     else:
-                        st.image(up_or_down[1])
-                else:
-                    st.image(up_or_down[0])
+                        st.image(up_or_down[0])
 
         except Exception as error:
                 st.write("We miss some index value for this kom", komune_code, "Place Name :"+ komune_name,"->" + values)
