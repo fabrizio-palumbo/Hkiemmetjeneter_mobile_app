@@ -101,7 +101,7 @@ if 'kom_kode' not in st.session_state:
     st.session_state['kom_kode'] = data_komune_code
 if 'kostra' not in st.session_state:
     st.session_state['kostra'] = data_kostra
-st.write(data_users_medium_to_very_sick.divide(data_users))
+#st.write(data_users_medium_to_very_sick.divide(data_users))
 
 def plot_graph_kommune(dataframe_kom,dataframe_mean_kostra,kom_name,year,y_label):
     dataframe_mean_kostra=dataframe_mean_kostra.replace(np.inf, np.nan)
