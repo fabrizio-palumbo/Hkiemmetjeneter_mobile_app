@@ -185,7 +185,6 @@ def main():
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
             with st.container():
                 cols=st.columns(3)    
-                st.write("This is inside the container")
                 with cols[0]:
                     st.image(icons[i])
 
