@@ -168,8 +168,7 @@ def main():
     list_kom_kostra = list(data_kostra.query('kostragr == @kom_gruppe').index)
     list_komune_kostra = [str(w) for w in list_kom_kostra]          
     options = ["Users_medium_to_very_sick","Timer_alle_hjemmetjenester","risiko for underernæring"]
-    cols=[]
-    cols.extend(st.columns(3))    
+    
     if not options:
         options = list_variables  
     for i,values in  enumerate(options):        
@@ -185,6 +184,7 @@ def main():
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
             with st.container():
+                cols=st.columns(3)    
                 st.write("This is inside the container")
                 with cols[0]:
                     st.image(icons[i])
