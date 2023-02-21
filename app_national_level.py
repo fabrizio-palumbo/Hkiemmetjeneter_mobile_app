@@ -92,7 +92,7 @@ list_variables={ "All_ncr":data_all_ncr.divide(data_users),#*100,
 "User_over_67":data_users_over_67.divide(data_users),
 "Plass_avaiable": data_plass_list ,
 "Users_very_sick": data_users_very_sick,
-"Users_medium_to_very_sick": data_users_medium_to_very_sick,
+"Users_medium_to_very_sick": data_users_medium_to_very_sick.divide(data_users),
 "risiko for underernæring":risiko_earnering
 }
 if 'variables' not in st.session_state:
@@ -101,7 +101,7 @@ if 'kom_kode' not in st.session_state:
     st.session_state['kom_kode'] = data_komune_code
 if 'kostra' not in st.session_state:
     st.session_state['kostra'] = data_kostra
-    
+st.write(data_users_medium_to_very_sick.divide(data_users))
 
 def plot_graph_kommune(dataframe_kom,dataframe_mean_kostra,kom_name,year,y_label):
     dataframe_mean_kostra=dataframe_mean_kostra.replace(np.inf, np.nan)
