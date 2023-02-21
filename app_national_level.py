@@ -185,6 +185,7 @@ def main():
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
             with st.container():
+                st.write("This is inside the container")
                 with cols[0]:
                     st.image(icons[i])
 
