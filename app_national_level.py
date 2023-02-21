@@ -23,7 +23,7 @@ data_arsvekt_per_user = pd.read_csv(db_folder+ 'Årsvekt_per_user.csv',encoding=
 data_education = pd.read_csv(db_folder+ 'education_level.csv', encoding='latin-1', index_col='komnr')
 data_ed_percentage = pd.read_csv(db_folder+ 'education_percentage.csv', encoding='latin-1', index_col='komnr')
 data_educationH= pd.read_csv(db_folder+ 'education_High.csv', encoding='latin-1', index_col='komnr')
-data_educationL = pd.read_csv(db_folder+ 'education_low.csv', encoding='latin-1', index_col='komnr')
+data_educationL = pd.read_csv(db_folder+ 'education_Low.csv', encoding='latin-1', index_col='komnr')
 data_users_very_sick = pd.read_csv(db_folder+ 'users_very_sick.csv',encoding='utf-8',index_col='komnr')
 data_users_medium_to_very_sick = pd.read_csv(db_folder+ 'users_medium_to_very_sick.csv',encoding='utf-8',index_col='komnr')
 
