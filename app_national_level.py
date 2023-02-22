@@ -183,32 +183,34 @@ def main():
             National_25th=data.quantile(q=0.25,axis = 0)
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
+            image_width=50
             c=[]
+
             c.extend([st.container()])
             with c[-1]:
                 cols=st.columns(3)    
                 with cols[0]:
-                    st.image(icons[i], width=200)
+                    st.image(icons[i], width=image_width)
 
                 with cols[1]:            
                     #diff=dataset.diff(periods=1 )
                     diff=dataset.pct_change(periods=1 ).sum()
                     if(diff>0.02):
-                        st.image(arrow[2], width=200)
+                        st.image(arrow[2], width=image_width)
                     else:
                         if(diff<-0.02):
-                            st.image(arrow[0], width=200)
+                            st.image(arrow[0], width=image_width)
                         else:
-                            st.image(arrow[1], width=200)
+                            st.image(arrow[1], width=image_width)
 
                 with cols[2]:            
                     if(dataset[-1]>National_25th[-1]):
                         if(dataset[-1]>National_75th[-1]):
-                            st.image(up_or_down[2], width=200)
+                            st.image(up_or_down[2], width=image_width)
                         else:
-                            st.image(up_or_down[1], width=200)
+                            st.image(up_or_down[1], width=image_width)
                     else:
-                        st.image(up_or_down[0], width=200)
+                        st.image(up_or_down[0], width=image_width)
 
         except Exception as error:
                 st.write("We miss some index value for this kom", komune_code, "Place Name :"+ komune_name,"->" + values)
