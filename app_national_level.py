@@ -150,10 +150,16 @@ up_or_down.extend([Image.open('sad.png')])
 up_or_down.extend([Image.open('face.png')])
 up_or_down.extend([Image.open('happy.png')])
 
-arrow=[]
-arrow.extend([Image.open('down.png')])
-arrow.extend([Image.open('flat.png')])
-arrow.extend([Image.open('up.png')])
+arrow_normal=[]
+arrow_normal.extend([Image.open('down.png')])
+arrow_normal.extend([Image.open('flat.png')])
+arrow_normal.extend([Image.open('up.png')])
+
+arrow_inverted=[]
+arrow_inverted.extend([Image.open('down_good.png')])
+arrow_inverted.extend([Image.open('flat.png')])
+arrow_inverted.extend([Image.open('up_bad.png')])
+
 def main():
     
 
@@ -172,7 +178,11 @@ def main():
     if not options:
         options = list_variables  
     for i,values in  enumerate(options):        
-        
+        if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
+            arrow=arrow_inverted
+        else:
+            arrow=arrow_normal
+            
         data = list_variables[values]
         data.columns=data.columns.astype(str)
         data=data[years_list]
@@ -183,7 +193,7 @@ def main():
             National_25th=data.quantile(q=0.25,axis = 0)
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
-            image_width=50
+            image_width=300
             c=[]
 
             c.extend([st.container()])
