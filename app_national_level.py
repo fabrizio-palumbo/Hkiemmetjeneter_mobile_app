@@ -183,7 +183,9 @@ def main():
             National_25th=data.quantile(q=0.25,axis = 0)
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
-            with st.container():
+            c=[]
+            c.extend([st.container()])
+            with c[-1]:
                 cols=st.columns(3)    
                 with cols[0]:
                     st.image(icons[i])
