@@ -167,7 +167,8 @@ def main():
 
     # ------------------------------------------------------------------------
     # Koumne dropdown list 
-    komune_name = st.selectbox('Select the komune name',options= [gruppetekst for gruppekode,gruppetekst in zip(data_komune_code['GRUPPEKODE'].unique(),data_komune_code['GRUPPETEKST'].unique())])     
+    new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">Select the komune name</p>'
+    komune_name = st.selectbox(new_title,options= [gruppetekst for gruppekode,gruppetekst in zip(data_komune_code['GRUPPEKODE'].unique(),data_komune_code['GRUPPETEKST'].unique())])     
     query_komune_name = data_komune_code.query("GRUPPETEKST == @komune_name")  
     komune_code = query_komune_name['GRUPPEKODE'].iloc[0]     
     kom_gruppe = data_kostra.loc[int(komune_code)]['kostragr']
