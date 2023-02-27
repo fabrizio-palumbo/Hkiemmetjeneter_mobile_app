@@ -145,10 +145,15 @@ icons.extend([Image.open('psychotherapy-fill.png')])
 icons.extend([Image.open('bxs-time-five.png')])
 icons.extend([Image.open('nutrition.png')])
 
-up_or_down=[]
-up_or_down.extend([Image.open('sad.png')])
-up_or_down.extend([Image.open('face.png')])
-up_or_down.extend([Image.open('happy.png')])
+face=[]
+face.extend([Image.open('sad.png')])
+face.extend([Image.open('face.png')])
+face.extend([Image.open('happy.png')])
+
+face_inverted=[]
+face_inverted.extend([Image.open('happy.png')])
+face_inverted.extend([Image.open('face.png')])
+face_inverted.extend([Image.open('sad.png')])
 
 arrow_normal=[]
 arrow_normal.extend([Image.open('down.png')])
@@ -179,10 +184,11 @@ def main():
         options = list_variables  
     for i,values in  enumerate(options):        
         if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
-            arrow=arrow_inverted
+            arrow_temp=arrow_inverted
+            up_or_down=face_inverted
         else:
-            arrow=arrow_normal
-            
+            arrow_temp=arrow_normal
+            up_or_down=face
         data = list_variables[values]
         data.columns=data.columns.astype(str)
         data=data[years_list]
@@ -206,12 +212,12 @@ def main():
                     #diff=dataset.diff(periods=1 )
                     diff=dataset.pct_change(periods=1 ).sum()
                     if(diff>0.02):
-                        st.image(arrow[2], width=image_width)
+                        st.image(arrow_temp[2], width=image_width)
                     else:
                         if(diff<-0.02):
-                            st.image(arrow[0], width=image_width)
+                            st.image(arrow_temp[0], width=image_width)
                         else:
-                            st.image(arrow[1], width=image_width)
+                            st.image(arrow_temp[1], width=image_width)
 
                 with cols[2]:            
                     if(dataset[-1]>National_25th[-1]):
