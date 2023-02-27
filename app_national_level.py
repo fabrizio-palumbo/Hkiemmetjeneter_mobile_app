@@ -183,6 +183,14 @@ def main():
     if not options:
         options = list_variables  
     for i,values in  enumerate(options):        
+        if(i>0):
+            text1=[]
+            text2=[]
+            text3=[]
+        else:
+            text1=values
+            text2="Recent Trend"
+            text3="Comperaed to National Stat"
         if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
             arrow_temp=arrow_inverted
             up_or_down=face_inverted
@@ -199,34 +207,33 @@ def main():
             National_25th=data.quantile(q=0.25,axis = 0)
             dataset=dataset.loc[years_list]
             #line_plot=plot_graph_kommune(dataset,kostra_mean,komune_name,dataset.index, values)  
-            image_width=300
             c=[]
 
             c.extend([st.container()])
             with c[-1]:
                 cols=st.columns(3)    
                 with cols[0]:
-                    st.image(icons[i], width=image_width)
+                    st.image(icons[i],use_column_width='always',caption=text1)
 
                 with cols[1]:            
                     #diff=dataset.diff(periods=1 )
                     diff=dataset.pct_change(periods=1 ).sum()
                     if(diff>0.02):
-                        st.image(arrow_temp[2], width=image_width)
+                        st.image(arrow_temp[2] ,use_column_width='always',caption=text2)
                     else:
                         if(diff<-0.02):
-                            st.image(arrow_temp[0], width=image_width)
+                            st.image(arrow_temp[0],use_column_width='always',caption=text2)
                         else:
-                            st.image(arrow_temp[1], width=image_width)
+                            st.image(arrow_temp[1],use_column_width='always',caption=text2)
 
                 with cols[2]:            
                     if(dataset[-1]>National_25th[-1]):
                         if(dataset[-1]>National_75th[-1]):
-                            st.image(up_or_down[2], width=image_width)
+                            st.image(up_or_down[2],use_column_width='always',caption=text3)
                         else:
-                            st.image(up_or_down[1], width=image_width)
+                            st.image(up_or_down[1],use_column_width='always',caption=text2)
                     else:
-                        st.image(up_or_down[1], width=image_width)
+                        st.image(up_or_down[1],use_column_width='always',caption=text3)
 
         except Exception as error:
                 st.write("We miss some index value for this kom", komune_code, "Place Name :"+ komune_name,"->" + values)
