@@ -191,6 +191,7 @@ def main():
             text1=values
             text2="Recent Trend"
             text3="Comperaed to National Stat"
+            
         if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
             arrow_temp=arrow_inverted
             up_or_down=face_inverted
@@ -231,7 +232,7 @@ def main():
                         if(dataset[-1]>National_75th[-1]):
                             st.image(up_or_down[2],use_column_width='always',caption=text3)
                         else:
-                            st.image(up_or_down[1],use_column_width='always',caption=text2)
+                            st.image(up_or_down[1],use_column_width='always',caption=text3)
                     else:
                         st.image(up_or_down[1],use_column_width='always',caption=text3)
 
