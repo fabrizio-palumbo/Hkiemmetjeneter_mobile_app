@@ -222,11 +222,11 @@ def main():
                 with cols[2]:            
                     if(dataset[-1]>National_25th[-1]):
                         if(dataset[-1]>National_75th[-1]):
-                            st.image(up_or_down[0], width=image_width)
+                            st.image(up_or_down[2], width=image_width)
                         else:
                             st.image(up_or_down[1], width=image_width)
                     else:
-                        st.image(up_or_down[2], width=image_width)
+                        st.image(up_or_down[1], width=image_width)
 
         except Exception as error:
                 st.write("We miss some index value for this kom", komune_code, "Place Name :"+ komune_name,"->" + values)
