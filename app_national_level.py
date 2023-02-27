@@ -214,7 +214,7 @@ def main():
                     st.image(icons[i],use_column_width='always')
 
                 with cols[1]:
-                    st.write(text2)            
+                    st.title(text2)            
                     #diff=dataset.diff(periods=1 )
                     diff=dataset.pct_change(periods=1 ).sum()
                     if(diff>0.02):
@@ -226,7 +226,7 @@ def main():
                             st.image(arrow_temp[1],use_column_width='always')
 
                 with cols[2]:
-                    st.write(text3)            
+                    st.title(text3)            
                     if(dataset[-1]>National_25th[-1]):
                         if(dataset[-1]>National_75th[-1]):
                             st.image(up_or_down[2],use_column_width='always')
