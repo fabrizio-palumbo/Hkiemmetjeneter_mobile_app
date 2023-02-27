@@ -84,7 +84,7 @@ list_variables={ "All_ncr":data_all_ncr.divide(data_users),#*100,
 "Stillingsstørrelse":data_stilstor,
 "Timer_i_uka":data_timar_i_uke,
 "Timer_ i_uka_67+":data_timar_i_uke_67plus,
-"Timer_alle_hjemmetjenester":data_timar_alle_hjemmetjenester,
+"Timer alle hjemmetjenester":data_timar_alle_hjemmetjenester,
 "Åarsvekt_per_user":data_arsvekt_per_user,
 "heltid":data_heltid,
 "Vakter":data_vakter.divide(data_users).dropna(axis=1, how="all"),
@@ -92,7 +92,7 @@ list_variables={ "All_ncr":data_all_ncr.divide(data_users),#*100,
 "User_over_67":data_users_over_67.divide(data_users),
 "Plass_avaiable": data_plass_list ,
 "Users_very_sick": data_users_very_sick,
-"Users_medium_to_very_sick": data_users_medium_to_very_sick.divide(data_users),
+"Users medium to very sick": data_users_medium_to_very_sick.divide(data_users),
 "risiko for underernæring":risiko_earnering
 }
 if 'variables' not in st.session_state:
@@ -178,16 +178,16 @@ def main():
     kom_gruppe = data_kostra.loc[int(komune_code)]['kostragr']
     list_kom_kostra = list(data_kostra.query('kostragr == @kom_gruppe').index)
     list_komune_kostra = [str(w) for w in list_kom_kostra]          
-    options = ["Users_medium_to_very_sick","Timer_alle_hjemmetjenester","risiko for underernæring"]
+    options = ["Users medium to very sick","Timer alle hjemmetjenester","risiko for underernæring"]
     
     if not options:
         options = list_variables  
     for i,values in  enumerate(options):        
         text1=values
-        text2="Recent Trend"
-        text3="Comperaed to National Stat"
+        text2="Trend in the last 3 years"
+        text3="Comperaed to National Statistic"
 
-        if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
+        if(values in ["Users medium to very sick","risiko for underernæring"]):
             arrow_temp=arrow_inverted
             up_or_down=face_inverted
         else:
