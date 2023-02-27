@@ -183,14 +183,9 @@ def main():
     if not options:
         options = list_variables  
     for i,values in  enumerate(options):        
-        if(i>0):
-            text1=[]
-            text2=[]
-            text3=[]
-        else:
-            text1=values
-            text2="Recent Trend"
-            text3="Comperaed to National Stat"
+        text1=values
+        text2="Recent Trend"
+        text3="Comperaed to National Stat"
 
         if(values in ["Users_medium_to_very_sick","risiko for underernæring"]):
             arrow_temp=arrow_inverted
@@ -215,7 +210,7 @@ def main():
             with c[-1]:
                 cols=st.columns(3)    
                 with cols[0]:
-                    st.write(text1)
+                    st.title(text1)
                     st.image(icons[i],use_column_width='always')
 
                 with cols[1]:
