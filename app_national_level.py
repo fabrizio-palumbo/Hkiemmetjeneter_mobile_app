@@ -93,7 +93,7 @@ list_variables={ "All_ncr":data_all_ncr.divide(data_users),#*100,
 "Plass_avaiable": data_plass_list ,
 "Users_very_sick": data_users_very_sick,
 "Users medium to very sick": data_users_medium_to_very_sick.divide(data_users),
-"risiko for underernæring":risiko_earnering
+"Risiko for underernæring":risiko_earnering
 }
 if 'variables' not in st.session_state:
     st.session_state['variables'] = list_variables
@@ -178,7 +178,7 @@ def main():
     kom_gruppe = data_kostra.loc[int(komune_code)]['kostragr']
     list_kom_kostra = list(data_kostra.query('kostragr == @kom_gruppe').index)
     list_komune_kostra = [str(w) for w in list_kom_kostra]          
-    options = ["Users medium to very sick","Timer alle hjemmetjenester","risiko for underernæring"]
+    options = ["Users medium to very sick","Timer alle hjemmetjenester","Risiko for underernæring"]
     
     if not options:
         options = list_variables  
