@@ -185,7 +185,7 @@ def main():
     for i,values in  enumerate(options):        
         text1=values
         text2="Trend in the last 3 years"
-        text3="Comperaed to National Statistic"
+        text3="Compared to National Statistic"
 
         if(values in ["Users medium to very sick","risiko for underernæring"]):
             arrow_temp=arrow_inverted
