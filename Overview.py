@@ -58,7 +58,7 @@ if 'variables' not in st.session_state:
 #    st.session_state['kostra'] = data_kostra
 #st.write(data_users_medium_to_very_sick.divide(data_users))
 
-webpage_url = "https://www.nrk.no/dokumentar/xl/underernaerte-lilly-_90_-gikk-hele-dager-uten-a-fa-mat-av-hjemmetjenesten-1.16211305#authors--expand"
+webpage_url = "http://www.nrk.no/dokumentar/xl/underernaerte-lilly-_90_-gikk-hele-dager-uten-a-fa-mat-av-hjemmetjenesten-1.16211305#authors--expand"
 st.set_page_config( page_icon=':hospital:',layout="wide")
 st.title('Norwegian Municipalities Health System Dashboard')
 title_container = st.container()
