@@ -46,7 +46,7 @@ def plot_graph_kommune(dataframe_kom,dataframe_mean_kostra,kom_name,year,y_label
     #color= "steelblue"
     )
     chart=alt.layer(band ,line).properties(
-        #height=450, width= 450
+        height=450#, width= 450
         autosize = "fit",
         
       #   title=stock_title
